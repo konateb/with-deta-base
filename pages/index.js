@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
