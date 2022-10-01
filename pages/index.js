@@ -74,7 +74,7 @@ export default function Home() {
 
   const completed = toDos.filter((todo) => todo.isCompleted)
   const notCompleted = toDos.filter((todo) => !todo.isCompleted)
-  console.log(notCompleted);
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -87,7 +87,7 @@ export default function Home() {
           <a href="https://nextjs.org">Next.js</a>
         </h2>
         <p className={styles.montext}>
-          afin d'éviter les abus, les donnés seront automatiquement suprimés
+          Afin d'éviter les abus, les donnés seront automatiquement suprimés
           dans 2 minutes
         </p>
       </header>
