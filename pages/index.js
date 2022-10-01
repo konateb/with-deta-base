@@ -83,9 +83,13 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <h2>
-         C'est un demo <a href="https://www.deta.sh">Deta base</a> +{" "}
+          C'est un demo de <a href="https://www.deta.sh">Deta base</a> +{" "}
           <a href="https://nextjs.org">Next.js</a>
         </h2>
+        <p className={styles.montext}>
+          afin d'éviter les abus, les donnés seront automatiquement suprimés
+          dans 2 minutes
+        </p>
       </header>
       <main className={styles.main}>
         <div className={styles.incomplete}>

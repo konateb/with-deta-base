@@ -194,6 +194,10 @@
 .card2:active {
   color: #ae00f3;
 }
+.montext {
+  margin-left: 10px;
+  color: #f30000;
+}
 
 .card3:hover,
 .card3:focus,
