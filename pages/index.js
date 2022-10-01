@@ -83,8 +83,8 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <h2>
-          <a href="https://www.deta.sh">deta base</a> +{" "}
-          <a href="https://nextjs.org">next.js</a>
+         C'est un demo <a href="https://www.deta.sh">Deta base</a> +{" "}
+          <a href="https://nextjs.org">Next.js</a>
         </h2>
       </header>
       <main className={styles.main}>
