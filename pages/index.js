@@ -86,7 +86,7 @@ export default function Home() {
           C'est un demo de <a href="https://www.deta.sh">Deta base</a> +{" "}
           <a href="https://nextjs.org">Next.js</a>
         </h2>
-        <p className={styles.montext}>
+        <p className={styles.mytextcolor}>
           Afin d'éviter les abus, les donnés seront automatiquement suprimés
           dans 2 minutes
         </p>
