@@ -3,7 +3,16 @@ import { Deta } from "deta";
 const deta = Deta(process.env.DETA_PROJECT_KEY);
 
 const base = deta.Base("todos");
-
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
 const handler = async (req, res) => {
   let { body, method } = req;
   let respBody = {};
@@ -15,7 +24,8 @@ const handler = async (req, res) => {
   } else if (method === "POST") {
     body = JSON.parse(body);
     body.isCompleted = false;
-    respBody = await base.put(body, "temp_key", { expireIn: 200 });
+    body;
+    respBody = await base.put(body, `temp_key ${makeid(4)}`, { expireIn: 200 });
     res.statusCode = 201;
   }
 

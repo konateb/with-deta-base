@@ -65,7 +65,7 @@ export default function Home() {
 
   const deleteToDo = async (tid) => {
     await fetch(`api/todos/${tid}`, { method: 'delete' })
-    setTimeout(getToDos, 300)
+    setTimeout(getToDos, 200)
   }
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function Home() {
         </h2>
         <p className={styles.mytextcolor}>
           Afin d'éviter les abus, les donnés seront automatiquement suprimés
-          dans 2 minutes
+          dans qlq mn
         </p>
       </header>
       <main className={styles.main}>
