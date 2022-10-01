@@ -25,7 +25,7 @@ const handler = async (req, res) => {
     body = JSON.parse(body);
     body.isCompleted = false;
     body;
-    respBody = await base.put(body, `temp_key ${makeid(6)}`, { expireIn: 2000 });
+    respBody = await base.put(body, `temp_key ${makeid(6)}`, { expireIn: 10000 });
     res.statusCode = 201;
   }
 
