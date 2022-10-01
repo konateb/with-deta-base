@@ -35,14 +35,17 @@ export default function Home() {
 
   const getToDos = async () => {
     const resp = await fetch('api/todos')
-    const toDos = await resp.json()
-    setToDos(toDos)
-  }
+    const toDos = await resp.json();
+   
+    setToDos(toDos);
+    
+    
+    }
 
   const createToDo = async () => {
     await fetch('api/todos', {
       method: 'post',
-      body: JSON.stringify({ content: newContent }),
+      body: JSON.stringify({ content: newContent  })
     })
     await getToDos()
   }
@@ -71,6 +74,7 @@ export default function Home() {
 
   const completed = toDos.filter((todo) => todo.isCompleted)
   const notCompleted = toDos.filter((todo) => !todo.isCompleted)
+  console.log(notCompleted);
   return (
     <div className={styles.container}>
       <Head>
@@ -79,14 +83,14 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <h2>
-          <a href="https://www.deta.sh">deta base</a> +{' '}
-          <a href="https://nextjs.org">next.js</a> to dos
+          <a href="https://www.deta.sh">deta base</a> +{" "}
+          <a href="https://nextjs.org">next.js</a> Mes
         </h2>
       </header>
       <main className={styles.main}>
         <div className={styles.incomplete}>
           <div className={styles.firstRow}>
-            <div className={styles.title}>to dos</div>
+            <div className={styles.title}>Tâches à faire</div>
             <div className={styles.reverseWrapper}>
               <input
                 className={styles.inpt}
@@ -112,7 +116,7 @@ export default function Home() {
 
         <div className={styles.complete}>
           <div className={styles.firstRow}>
-            <div className={styles.title}>done</div>
+            <div className={styles.title}>Terminée</div>
           </div>
           <div className={styles.scrolly}>
             {completed.map((todo, index) => (
@@ -140,5 +144,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }

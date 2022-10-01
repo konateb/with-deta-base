@@ -15,7 +15,7 @@ const handler = async (req, res) => {
   } else if (method === "POST") {
     body = JSON.parse(body);
     body.isCompleted = false;
-    respBody = await base.put(body);
+    respBody = await base.put(body, "temp_key", { expireIn: 200 });
     res.statusCode = 201;
   }
 
