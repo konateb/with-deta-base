@@ -43,10 +43,11 @@ export default function Home() {
     }
 
   const createToDo = async () => {
-    await fetch('api/todos', {
-      method: 'post',
-      body: JSON.stringify({ content: newContent  })
-    })
+    if (!newContent) return;
+      await fetch("api/todos", {
+        method: "post",
+        body: JSON.stringify({ content: newContent }),
+      });
     await getToDos()
   }
 
