@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
 const ToDo = ({ content, isCompleted, onChange, onDelete }) => {
-  const cards = ['card', 'card2', 'card3', 'card4', 'card5']
+  const cards = ["card", "card2", "card3", "card4", "card5"];
   return (
     <div className={styles[cards[Math.floor(Math.random() * cards.length)]]}>
       <div
         className={styles.text}
-        style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+        style={{ textDecoration: isCompleted ? "line-through" : "" }}
       >
         {content}
       </div>
@@ -25,57 +25,59 @@ const ToDo = ({ content, isCompleted, onChange, onDelete }) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function Home() {
-  const [newContent, setNewContent] = useState('')
+  const [newContent, setNewContent] = useState("");
 
-  const [toDos, setToDos] = useState([])
+  const [toDos, setToDos] = useState([]);
+  const myInterval = setInterval(reFresh, 2000);
 
   const getToDos = async () => {
-    const resp = await fetch('api/todos')
+    clearInterval(myInterval);
+    const resp = await fetch("api/todos");
     const toDos = await resp.json();
-   
+
     setToDos(toDos);
-    
-    
-    }
+  };
 
   const createToDo = async () => {
     if (!newContent) return;
-      await fetch("api/todos", {
-        method: "post",
-        body: JSON.stringify({ content: newContent }),
-      });
-    await getToDos()
-  }
+    await fetch("api/todos", {
+      method: "post",
+      body: JSON.stringify({ content: newContent }),
+    });
+    await getToDos();
+  };
 
   const updateToDo = async (todo) => {
     let newBody = {
       ...todo,
       isCompleted: !todo.isCompleted,
-    }
+    };
     await fetch(`api/todos/${todo.key}`, {
-      method: 'put',
+      method: "put",
       body: JSON.stringify(newBody),
-    })
+    });
 
-    await getToDos()
-  }
+    await getToDos();
+  };
 
   const deleteToDo = async (tid) => {
-    await fetch(`api/todos/${tid}`, { method: 'delete' })
-    setTimeout(getToDos, 200)
-  }
+    await fetch(`api/todos/${tid}`, { method: "delete" });
+    setTimeout(getToDos, 200);
+  };
 
   useEffect(() => {
-    getToDos()
-  }, [])
+    getToDos();
+  }, []);
 
-  const completed = toDos.filter((todo) => todo.isCompleted)
-  const notCompleted = toDos.filter((todo) => !todo.isCompleted)
-  
+  const completed = toDos.filter((todo) => todo.isCompleted);
+  const notCompleted = toDos.filter((todo) => !todo.isCompleted);
+  function reFresh() {
+    getToDos();
+  }
   return (
     <div className={styles.container}>
       <Head>
