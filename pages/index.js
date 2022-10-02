@@ -90,7 +90,7 @@ export default function Home() {
           <a href="https://nextjs.org">Next.js</a>
         </h2>
         <p className={styles.mytextcolor}>
-          Afin d'éviter les abus, les donnés seront automatiquement suprimés
+          Afin d'éviter les abus, les donnés seront automatiquement supprimés
           dans qlq mn
         </p>
       </header>
