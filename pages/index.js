@@ -76,7 +76,7 @@ export default function Home() {
   const completed = toDos.filter((todo) => todo.isCompleted);
   const notCompleted = toDos.filter((todo) => !todo.isCompleted);
   function reFresh() {
-    getToDos();
+    // getToDos();
   }
   return (
     <div className={styles.container}>
